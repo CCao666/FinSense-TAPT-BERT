@@ -1,0 +1,22 @@
+# --- Core Deep Learning & NLP ---
+transformers>=4.30.0
+datasets>=2.12.0
+torch>=2.0.0
+accelerate>=0.20.0
+evaluate>=0.4.0
+
+# --- Model Optimization & Math ---
+scikit-learn>=1.2.0
+numpy>=1.24.0
+pandas>=2.0.0
+
+# --- Production & API Deployment ---
+fastapi>=0.95.0
+uvicorn>=0.22.0
+pydantic>=2.0.0
+gradio>=3.35.0
+
+# --- Utilities ---
+tqdm>=4.65.0
+matplotlib>=3.7.0
+requests>=2.31.0
