@@ -1,17 +1,21 @@
-📌 Overview
-General-purpose NLP models often struggle with the nuanced vocabulary of the financial sector (e.g., confusing "Shorting" with a negative length or "Bullish" with an animal). This project implements an end-to-end pipeline to adapt a standard BERT model to the financial domain using Task-Adaptive Pretraining (TAPT) and a Calibrated Inference API.
+# 🏦 FinSense-TAPT: Calibrated Financial Sentiment Intelligence
 
-🚀 Key Features
-Domain-Adaptive Optimization: Leveraged TAPT (continued Masked Language Modeling) on in-domain financial corpora to align semantic weights before fine-tuning.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97-Transformers-orange)](https://huggingface.co/docs/transformers/index)
 
-Robust Fine-tuning Strategy: Mitigated "Neutral Class Bias" and severe label imbalance using Weighted Cross-Entropy Loss and Label Smoothing.
+## 📌 Project Overview
+General-purpose NLP models often fail to capture the nuanced implications of financial news (e.g., misinterpreting "Shorting" or "Yield Curve Inversion"). This project implements an end-to-end pipeline to adapt a standard **BERT** model to the financial domain using **Task-Adaptive Pretraining (TAPT)** and a **Calibrated Inference API**.
 
-Production-Ready API: Architected a FastAPI service featuring a Confidence-Margin flagging system to identify and route "Borderline" predictions for manual review.
 
+
+## 🚀 Key Features
+* **Domain-Adaptive Optimization**: Applied **TAPT** (continued Masked Language Modeling) on financial corpora to align semantic weights with industry terminology.
+* **Robust Fine-tuning**: Addressed "Neutral Class Bias" and severe label imbalance using **Weighted Cross-Entropy Loss** and **Label Smoothing**.
+* **Production-Ready API**: Architected a **FastAPI/Gradio** service featuring a **Confidence-Margin** flagging system to identify "Borderline" signals for manual auditing.
 
 ## 📊 Performance Comparison
-
-The TAPT-enhanced model demonstrates superior stability and minority class recall compared to the baseline BERT-base-uncased. 
+The TAPT-enhanced model demonstrates superior stability and minority class recall compared to the baseline BERT-base-uncased.
 
 | Metric | Baseline BERT | **FinSense-TAPT (Ours)** | Relative Improvement |
 | :--- | :---: | :---: | :---: |
@@ -19,18 +23,38 @@ The TAPT-enhanced model demonstrates superior stability and minority class recal
 | **F1-Macro** | 0.6277 | **0.6694** | **+6.6%** |
 | **Validation Loss** | 0.7594 | 0.8466 | *(Calibrated)* |
 
-> **Note on Loss**: The higher loss in the TAPT model is an intentional result of **Label Smoothing** and **Class Weighting**. This trade-off significantly improves the model's ability to identify minority classes (Positive/Negative) which are often overwhelmed by Neutral samples in baseline models.
+> **Note on Loss**: The higher loss in the TAPT model is a mathematical byproduct of **Label Smoothing**. By preventing over-confidence, the model achieves better generalization and higher F1-scores on minority sentiment classes (Positive/Negative).
+
+## 🔍 Calibration & Borderline Case Analysis
+In high-stakes finance, a confident mistake is costlier than an admitted uncertainty. Our system calculates the **Prediction Margin** to flag ambiguous news.
+
+### **Sample Test Case: The "Hedged" Statement**
+**Input:** *"The tech giant reported a 10% increase in quarterly revenue, but warned that global supply chain disruptions could significantly impact profit margins in the coming months."*
+
+**Model Inference Result:**
+* **Neutral 🟡**: 51%
+* **Negative 🔴**: 28%
+* **Positive 🟢**: 21%
+
+**API Decision Output:**
+> **Decision**: Neutral 🟡 | **Status**: ⚠️ Borderline - Review Needed (Margin: 0.23)
 
 
 
-🔍 Why it Works: The Calibration Logic
-In high-stakes financial environments, a confident mistake is costlier than an admitted uncertainty.
+## 🛠️ API & System Architecture
+The system is designed for seamless integration into quantitative trading pipelines.
 
-TAPT: Bridges the semantic gap for entities like $AAPL or events like M&A.
-
-Label Smoothing: Prevents the model from becoming over-confident in its predictions, leading to better generalization on unseen news.
-
-Uncertainty Flagging: Our API calculates the Margin (difference between the top two predicted probabilities). If the margin is low, the prediction is flagged as Borderline.
-
-🛠️ API & Usage
-The system is deployed via FastAPI and Gradio for real-time inference.
+### **Inference API Response (JSON):**
+```json
+{
+  "text": "The tech giant reported a 10% increase in quarterly revenue, but warned that global supply chain disruptions could significantly impact profit margins in the coming months.",
+  "sentiment": "Neutral",
+  "confidence": 0.51,
+  "margin": 0.23,
+  "status": "⚠️ BORDERLINE_REVIEW_NEEDED",
+  "distribution": {
+    "Neutral": 0.51,
+    "Negative": 0.28,
+    "Positive": 0.21
+  }
+}
