@@ -67,10 +67,15 @@ In high-stakes finance, a confident mistake is costlier than an admitted uncerta
 ## 🛠️ API & System Architecture
 The system is designed for seamless integration into quantitative trading pipelines.
 
-### **Inference API Response (JSON):**
+### 🛠️ API & System Architecture
+
+The system is designed for seamless integration into quantitative trading pipelines. To ensure reliability, every prediction includes a **Confidence Margin** calculation.
+
+**Inference API Response (JSON):**
+
 ```json
 {
-  "text": "The tech giant reported a 10% increase in quarterly revenue, but warned that global supply chain disruptions could significantly impact profit margins in the coming months.",
+  "text": "The tech giant reported a 10% increase in quarterly revenue, but warned that global supply chain disruptions...",
   "sentiment": "Neutral",
   "confidence": 0.51,
   "margin": 0.23,
@@ -80,7 +85,7 @@ The system is designed for seamless integration into quantitative trading pipeli
     "Negative": 0.28,
     "Positive": 0.21
   }
-}```
+}
 
 ### 📸 API Interface Gallery
 
@@ -101,11 +106,3 @@ Effectively filters non-material corporate movements and divestments to reduce t
 #### **4. Borderline Case (Calibration Active)**
 When a statement is "hedged" or ambiguous, the system calculates a low margin and flags it as **⚠️ NEED REVIEW**.
 ![Borderline Case](./assets/API_Need_Review.png)
-
----
-
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🤝 Contributing
-Contributions are welcome! If you'd like to improve the TAPT training script or the Calibration logic, please open a Pull Request.
