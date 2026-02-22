@@ -35,8 +35,6 @@ Comparing the Confusion Matrices reveals that **FinSense-TAPT** significantly im
 * **Risk Mitigation**: The model is now less likely to confuse "Negative" news for "Positive" (e.g., Tesla recalls), which is critical for preventing false-buy signals in trading.
 ![Confusion Matrix](./assets/Confusion_Matrix_1.png)
 
----
-
 ## 🔍 Error Analysis: Why TAPT Wins
 A qualitative review of samples where TAPT succeeded and the Baseline failed reveals three major improvements in domain intelligence:
 
