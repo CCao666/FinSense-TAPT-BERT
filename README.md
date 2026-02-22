@@ -80,7 +80,7 @@ The system is designed for seamless integration into quantitative trading pipeli
     "Negative": 0.28,
     "Positive": 0.21
   }
-}
+}```
 
 ### 📸 API Interface Gallery
 
