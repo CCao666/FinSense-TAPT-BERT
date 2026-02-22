@@ -28,6 +28,13 @@ The TAPT-enhanced model demonstrates superior stability and minority class recal
 ### **Performance Visualization**
 ![Model Performance Comparison](./assets/Performance_Visualization.png)
 
+### **Confusion Matrix Analysis**
+Comparing the Confusion Matrices reveals that **FinSense-TAPT** significantly improved performance in the **Negative** and **Neutral** classes:
+* **Negative Recall**: Increased from 49 to **56** correct predictions.
+* **Neutral Recall**: Improved from 13 to **17** correct predictions.
+* **Risk Mitigation**: The model is now less likely to confuse "Negative" news for "Positive" (e.g., Tesla recalls), which is critical for preventing false-buy signals in trading.
+![Confusion Matrix](./assets/Confusion_Matrix.png)
+
 ## 🔍 Calibration & Borderline Case Analysis
 In high-stakes finance, a confident mistake is costlier than an admitted uncertainty. Our system calculates the **Prediction Margin** to flag ambiguous news.
 
