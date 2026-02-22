@@ -86,7 +86,7 @@ The system is designed for seamless integration into quantitative trading pipeli
     "Positive": 0.21
   }
 }
-
+```
 ### 📸 API Interface Gallery
 
 The following screenshots demonstrate the **FinSense-TAPT** UI in action across different market scenarios. The interface dynamically updates the **Status** based on the model's confidence margin, ensuring high-risk or ambiguous signals are flagged for manual review.
