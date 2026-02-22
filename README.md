@@ -34,7 +34,6 @@ Comparing the Confusion Matrices reveals that **FinSense-TAPT** significantly im
 * **Neutral Recall**: Improved from 13 to **17** correct predictions.
 * **Risk Mitigation**: The model is now less likely to confuse "Negative" news for "Positive" (e.g., Tesla recalls), which is critical for preventing false-buy signals in trading.
 
-![Confusion Matrix](./assets/Confusion_Matrix.png)
 
 ## 🔍 Calibration & Borderline Case Analysis
 In high-stakes finance, a confident mistake is costlier than an admitted uncertainty. Our system calculates the **Prediction Margin** to flag ambiguous news.
