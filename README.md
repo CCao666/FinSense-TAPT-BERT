@@ -81,3 +81,42 @@ The system is designed for seamless integration into quantitative trading pipeli
     "Positive": 0.21
   }
 }
+
+### 📸 API Interface Gallery
+
+The following screenshots demonstrate the **FinSense-TAPT** interface in action across different market scenarios. Note the "Status" field, which dynamically changes based on the model's confidence margin.
+
+<table style="width:100%; text-align:center;">
+  <tr>
+    <td>
+      <b>1. Negative Signal (High Confidence)</b><br>
+      <img src="./assets/API_Negative.png" width="400"><br>
+      <i>Identifies high-risk events like recalls.</i>
+    </td>
+    <td>
+      <b>2. Positive Signal (High Confidence)</b><br>
+      <img src="./assets/API_Positive.png" width="400"><br>
+      <i>Captures bullish momentum and technical support.</i>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>3. Neutral Signal</b><br>
+      <img src="./assets/API_Neutral.png" width="400"><br>
+      <i>Filters non-material corporate movements.</i>
+    </td>
+    <td>
+      <b>4. Borderline Case (Calibration Active)</b><br>
+      <img src="./assets/API_Need_Review.png" width="400"><br>
+      <i>Flags ambiguous "hedged" statements for audit.</i>
+    </td>
+  </tr>
+</table>
+
+---
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🤝 Contributing
+Contributions are welcome! If you'd like to improve the TAPT training script or the Calibration logic, please open a Pull Request.
