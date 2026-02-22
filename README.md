@@ -25,6 +25,9 @@ The TAPT-enhanced model demonstrates superior stability and minority class recal
 
 > **Note on Loss**: The higher loss in the TAPT model is a mathematical byproduct of **Label Smoothing**. By preventing over-confidence, the model achieves better generalization and higher F1-scores on minority sentiment classes (Positive/Negative).
 
+### **Performance Visualization**
+![Model Performance Comparison](./assets/Performance_Visualization.png)
+
 ## 🔍 Calibration & Borderline Case Analysis
 In high-stakes finance, a confident mistake is costlier than an admitted uncertainty. Our system calculates the **Prediction Margin** to flag ambiguous news.
 
