@@ -84,34 +84,23 @@ The system is designed for seamless integration into quantitative trading pipeli
 
 ### 📸 API Interface Gallery
 
-The following screenshots demonstrate the **FinSense-TAPT** interface in action across different market scenarios. Note the "Status" field, which dynamically changes based on the model's confidence margin.
+The following screenshots demonstrate the **FinSense-TAPT** UI in action across different market scenarios. The interface dynamically updates the **Status** based on the model's confidence margin, ensuring high-risk or ambiguous signals are flagged for manual review.
 
-<table style="width:100%; text-align:center;">
-  <tr>
-    <td>
-      <b>1. Negative Signal (High Confidence)</b><br>
-      <img src="./assets/API_Negative.png" width="400"><br>
-      <i>Identifies high-risk events like recalls.</i>
-    </td>
-    <td>
-      <b>2. Positive Signal (High Confidence)</b><br>
-      <img src="./assets/API_Positive.png" width="400"><br>
-      <i>Captures bullish momentum and technical support.</i>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <b>3. Neutral Signal</b><br>
-      <img src="./assets/API_Neutral.png" width="400"><br>
-      <i>Filters non-material corporate movements.</i>
-    </td>
-    <td>
-      <b>4. Borderline Case (Calibration Active)</b><br>
-      <img src="./assets/API_Need_Review.png" width="400"><br>
-      <i>Flags ambiguous "hedged" statements for audit.</i>
-    </td>
-  </tr>
-</table>
+#### **1. Negative Signal (High Confidence)**
+Accurately identifies high-risk events, such as product recalls or stock downgrades, with high model certainty.
+![Negative Signal](./assets/API_Negative.png)
+
+#### **2. Positive Signal (High Confidence)**
+Captures bullish momentum, positive earnings surprises, and technical support levels.
+![Positive Signal](./assets/API_Positive.png)
+
+#### **3. Neutral Signal**
+Effectively filters non-material corporate movements and divestments to reduce trading noise.
+![Neutral Signal](./assets/API_Neutral.png)
+
+#### **4. Borderline Case (Calibration Active)**
+When a statement is "hedged" or ambiguous, the system calculates a low margin and flags it as **⚠️ NEED REVIEW**.
+![Borderline Case](./assets/API_Need_Review.png)
 
 ---
 
