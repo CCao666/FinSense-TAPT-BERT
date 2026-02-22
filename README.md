@@ -106,3 +106,36 @@ Effectively filters non-material corporate movements and divestments to reduce t
 #### **4. Borderline Case (Calibration Active)**
 When a statement is "hedged" or ambiguous, the system calculates a low margin and flags it as **⚠️ NEED REVIEW**.
 ![Borderline Case](./assets/API_Need_Review.png)
+
+## 📚 References
+
+This project is inspired by and builds upon prior work in domain-adaptive language modeling and financial NLP:
+
+- **Gururangan et al. (2020).**  
+  *Don’t Stop Pretraining: Adapt Language Models to Domains and Tasks.*  
+  Empirical Methods in Natural Language Processing (EMNLP).  
+  https://arxiv.org/abs/2004.10964
+
+- **Araci, D. (2019).**  
+  *FinBERT: Financial Sentiment Analysis with Pre-trained Language Models.*  
+  https://arxiv.org/abs/1908.10063
+
+- **Takala et al. (2014).**  
+  *Financial PhraseBank.*  
+  https://www.researchgate.net/publication/251231364_FinancialPhraseBank
+
+> **Note:** This repository emphasizes **methodology, system design, and calibrated inference**,  
+> rather than benchmarking against large proprietary financial models.
+
+---
+
+## 📄 License
+
+This project is released under the **MIT License**.
+
+You are free to use, modify, and distribute this code for research or commercial purposes,
+provided that the original copyright
+and license notice are included.
+
+See the [`LICENSE`](./LICENSE) file for details.
+
