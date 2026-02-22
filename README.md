@@ -35,6 +35,21 @@ Comparing the Confusion Matrices reveals that **FinSense-TAPT** significantly im
 * **Risk Mitigation**: The model is now less likely to confuse "Negative" news for "Positive" (e.g., Tesla recalls), which is critical for preventing false-buy signals in trading.
 ![Confusion Matrix](./assets/Confusion_Matrix_1.png)
 
+---
+
+## 🔍 Error Analysis: Why TAPT Wins
+A qualitative review of samples where TAPT succeeded and the Baseline failed reveals three major improvements in domain intelligence:
+
+1. **Decoding Financial Terminology**: Baseline often misinterprets corporate actions (like "Divestments") as Positive. TAPT correctly identifies them as **Neutral**.
+2. **Handling Macro-Events**: TAPT properly weighs the impact of "sanctions" and "lawsuits" which the baseline often defaults to Neutral.
+3. **High-Stakes Red Flags**: TAPT correctly identifies **"Recalls"** and **"Downgrades"** as Negative, whereas the Baseline was frequently fooled by brand-name momentum or numerical figures.
+
+| Sample Success Case | Baseline Mistake | TAPT Correction | Impact |
+| :--- | :---: | :---: | :--- |
+| **Diageo Sells Venue** | Positive | **Neutral** | Reduces M&A noise |
+| **Gazprom Sanctions** | Neutral | **Negative** | Captures regulatory risk |
+| **TSLA Model X Recall** | Positive | **Negative** | Eliminates dangerous buy signals |
+
 ## 🔍 Calibration & Borderline Case Analysis
 In high-stakes finance, a confident mistake is costlier than an admitted uncertainty. Our system calculates the **Prediction Margin** to flag ambiguous news.
 
